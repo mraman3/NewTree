@@ -7,16 +7,15 @@ export default class TreeHut {
         this.pwa = new PWA();
         this.scene = this.pwa.scene;
 
-        const sphereModel = this.createSphere();
+        this.createSphere();
 
-        this.scene.add(sphereModel);
+        this.scene.add(this.instance);
     }
 
     createSphere() {
         const geometry = new THREE.SphereGeometry(15, 32, 16);
         const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-        const sphere = new THREE.Mesh(geometry, material);
-        return sphere;
+        this.instance = new THREE.Mesh(geometry, material);
     }
 
 

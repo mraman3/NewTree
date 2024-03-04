@@ -8,15 +8,14 @@ export default class Renderer{
         this.canvas = this.pwa.canvas;
         this.camera = this.pwa.camera;
 
-        this.instance = this.createRenderer();
-        this.instance.render(this.scene, this.camera);
+        this.createRenderer();
+        this.instance.render(this.scene, this.pwa.camera.instance);
         
     }
 
     createRenderer(){
-        const renderer = new THREE.WebGLRenderer(this.canvas);
-        renderer.setSize(800, 600)
-        return renderer;
+        this.instance = new THREE.WebGLRenderer(this.canvas);
+        this.instance.setSize(800, 600)
     }
 
 
