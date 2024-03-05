@@ -7,13 +7,14 @@ export default class HdriLoader {
     constructor() {
         this.pwa = new PWA();
         this.scene = this.pwa.scene;
-
+        this.assestLoader = this.pwa.assestLoader
+        
         this.createHDRI(this.scene);
         
     }
 
     createHDRI(passedScene) {
-        const rgbeLoader = new RGBELoader();
+        const rgbeLoader = new RGBELoader(this.assestLoader);
         rgbeLoader.load('Assets/MR_INT-002_BathroomHard_Pierre.hdr', function (texture) {
             texture.mapping = THREE.EquirectangularReflectionMapping;
             passedScene.environment = texture;
