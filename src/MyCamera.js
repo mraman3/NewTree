@@ -1,15 +1,17 @@
-import * as THREE from 'three'
-import PWA from './PWA'
+import * as THREE from 'three';
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import PWA from './PWA';
 
 export default class MyCamera{
     constructor(){
         this.pwa = new PWA();
+        this.canvas = this.pwa.canvas;
         this.scene = this.pwa.scene;
         this.sizes = this.pwa.sizes;
 
-        this.createCamera();
-        console.log("Camera Instance Created ");
-        
+
+        this.createCamera();        
+        this.setControls();
     }
 
     createCamera(){
@@ -21,6 +23,17 @@ export default class MyCamera{
     resize(){
         this.instance.aspect = this.sizes.width/this.sizes.height;
         this.instance.updateProjectionMatrix();
+    }
+
+    setControls(){
+        this.controls = new OrbitControls(this.instance, this.canvas)
+        this.controls.enableDamping = true
+        this.controls.enablePan = true
+        this.controls.rotateSpeed = 1.2
+        this.controls.zoomSpeed = 0.8
+        this.controls.target.z = -1
+        this.controls.enableRotate = true
+        this.controls.enableZoom = true
     }
 
 }

@@ -1,10 +1,11 @@
 import * as THREE from 'three';
 
-import TreeHut from './TreeHut';
+import TreeHut from './Models/TreeHut';
 import MyCamera from './MyCamera';
 import Renderer from './Renderer';
 import Time from '../Tools/Time';
 import Sizes from '../Tools/Sizes';
+import HdriLoader from './Models/HdriLoader';
 
 let instance = null;
 export default class PWA {
@@ -23,6 +24,7 @@ export default class PWA {
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.treeHut = new TreeHut();
+        this.hdriLoader = new HdriLoader();
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
 
