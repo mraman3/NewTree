@@ -3,8 +3,8 @@ import * as THREE from 'three';
 import TreeHut from './Models/TreeHut';
 import MyCamera from './MyCamera';
 import Renderer from './Renderer';
-import Time from '../Tools/Time';
-import Sizes from '../Tools/Sizes';
+import Time from './Tools/Time';
+import Sizes from './Tools/Sizes';
 import HdriLoader from './Models/HdriLoader';
 
 let instance = null;
