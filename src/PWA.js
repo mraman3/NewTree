@@ -19,10 +19,10 @@ export default class PWA {
 
         window.scene = this
 
-        
+
         this.canvas = passedCanvas
         this.assestLoader = new THREE.LoadingManager();
-        this.loadAssests(); 
+        this.loadAssests();
 
         this.sizes = new Sizes();
         this.time = new Time();
@@ -32,7 +32,7 @@ export default class PWA {
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
 
-        
+
 
         window.addEventListener("resize", () => {
             this.resize();
@@ -42,7 +42,7 @@ export default class PWA {
             this.update();
         })
 
-
+        this.myCamera.lowerHutTransition()
     }
 
     resize() {

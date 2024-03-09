@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import PWA from '../PWA'
 
-
 export default class TreeHut {
 
     constructor() {
@@ -10,18 +9,20 @@ export default class TreeHut {
         this.scene = this.pwa.scene;
         this.assestLoader = this.pwa.assestLoader
 
-        this.treeModel = null
+
+
         this.createTree(this.scene);
         this.createLights();
+        console.log(this.items)
 
     }
 
 
     createTree(passedScene, model) {
         const gltfLoader = new GLTFLoader(this.assestLoader);
-        gltfLoader.load('Assets/TreeHut.glb', function (glb) {
-            glb.scene.position.y -= 5
-            passedScene.add(glb.scene);
+        gltfLoader.load('Assets/SortedTree.gltf', function (gltf) {
+            gltf.scene.position.y -= 5
+            passedScene.add(gltf.scene);
         })
     }
 
