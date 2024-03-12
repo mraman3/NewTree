@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import PWA from '../PWA'
 
 export default class HdriLoader {
@@ -7,18 +6,18 @@ export default class HdriLoader {
     constructor() {
         this.pwa = new PWA();
         this.scene = this.pwa.scene;
-        this.assestLoader = this.pwa.assestLoader
-        
-        this.createHDRI(this.scene);
-        
+        this.resources = this.pwa.resources
+
+        this.createHDRI();
+
     }
 
-    createHDRI(passedScene) {
-        const rgbeLoader = new RGBELoader(this.assestLoader);
-        rgbeLoader.load('Assets/MR_INT-002_BathroomHard_Pierre.hdr', function (texture) {
-            texture.mapping = THREE.EquirectangularReflectionMapping;
-            passedScene.environment = texture;
-        });
+    createHDRI() {
+        this.resources.on('ready', () => {
+            this.resource = this.resources.items.lightingHDR
+            this.resource.mapping = THREE.EquirectangularReflectionMapping;
+            this.scene.environment = this.resource
+        })
     }
 
 }

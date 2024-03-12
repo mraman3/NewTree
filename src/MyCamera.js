@@ -29,6 +29,11 @@ export default class MyCamera {
         console.log("X : " + this.instance.position.x + "z : " + this.instance.position.z + "y : " + this.instance.position.y)
     }
 
+    update()
+    {
+        this.controls.update()
+    }
+
     setControls() {
         this.controls = new OrbitControls(this.instance, this.canvas)
         this.controls.enableDamping = true
@@ -48,11 +53,20 @@ export default class MyCamera {
             y: 2.006,
             z: 3.180,
         })
-        gsap.to(this.instance.rotation, {
+
+        gsap.to(this.controls.target, {
             duration: 5, 
-            ease: "none",
-            y: -.7,
+            ease: "power1.inOut",
+            x: 0.37,
+            z: 2.17,
+            y: 2.06
         })
+
+        // gsap.to(this.instance.rotation, {
+        //     duration: 5, 
+        //     ease: "none",
+        //     y: -.7,
+        // })
 
     }
 

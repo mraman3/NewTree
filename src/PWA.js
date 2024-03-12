@@ -7,6 +7,9 @@ import Time from './Tools/Time.js';
 import Sizes from './Tools/Sizes.js';
 import HdriLoader from './Models/HdriLoader.js';
 
+import Resources from './Tools/Resources.js';
+import sources from './sources.js'
+
 let instance = null;
 export default class PWA {
 
@@ -27,6 +30,7 @@ export default class PWA {
         this.sizes = new Sizes();
         this.time = new Time();
         this.scene = new THREE.Scene();
+        this.resources = new Resources(sources);
         this.treeHut = new TreeHut();
         this.hdriLoader = new HdriLoader();
         this.myCamera = new MyCamera();
@@ -42,7 +46,11 @@ export default class PWA {
             this.update();
         })
 
-        this.myCamera.lowerHutTransition()
+        window.addEventListener('click', () => {
+            this.myCamera.lowerHutTransition()
+        })
+
+
     }
 
     resize() {
@@ -53,13 +61,15 @@ export default class PWA {
 
     update() {
         this.renderer.update();
+        this.myCamera.update();
     }
 
-    loadAssests(){
+    loadAssests() {
         //Load manager info control
         this.assestLoader.onStart = function (url, item, total) {
             console.log(`Started loading: ${url}`);
         }
+
         const progressBar = document.getElementById('progress-bar');
         this.assestLoader.onProgress = function (url, loaded, total) {
             progressBar.value = (loaded / total) * 100;

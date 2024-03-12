@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import PWA from '../PWA'
 
 export default class TreeHut {
@@ -7,38 +6,20 @@ export default class TreeHut {
     constructor() {
         this.pwa = new PWA();
         this.scene = this.pwa.scene;
-        this.assestLoader = this.pwa.assestLoader
+        this.resources = this.pwa.resources
+
+        this.createTree();
+     }
 
 
-
-        this.createTree(this.scene);
-        this.createLights();
-        console.log(this.items)
-
-    }
-
-
-    createTree(passedScene, model) {
-        const gltfLoader = new GLTFLoader(this.assestLoader);
-        gltfLoader.load('Assets/SortedTree.gltf', function (gltf) {
-            gltf.scene.position.y -= 5
-            passedScene.add(gltf.scene);
+    createTree() {
+        this.resources.on('ready', () => {
+            console.log(this.resources.items)
+            this.resource = this.resources.items.treeModel
+            this.model = this.resource.scene
+            this.model.position.y -=5
+            this.scene.add(this.model)
+            
         })
     }
-
-
-    // createSphere() {
-    //     const geometry = new THREE.SphereGeometry(3, 64, 64);
-    //     const material = new THREE.MeshStandardMaterial({
-    //         color: 0x00ff83
-    //     });
-    //     this.instance = new THREE.Mesh(geometry, material);
-    // }
-
-    createLights() {
-        const light = new THREE.PointLight(0xffffff, 100, 100)
-        light.position.set(0, 10, 10)
-        this.scene.add(light)
-    }
-
 }
