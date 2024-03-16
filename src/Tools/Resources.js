@@ -1,4 +1,3 @@
-import * as THREE from 'three'
 import PWA from '../PWA.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';

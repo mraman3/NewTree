@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 
+import Island from './Models/Island.js';
 import TreeHut from './Models/TreeHut.js';
 import MyCamera from './MyCamera.js';
 import Renderer from './Renderer.js';
@@ -9,6 +10,8 @@ import HdriLoader from './Models/HdriLoader.js';
 
 import Resources from './Tools/Resources.js';
 import sources from './sources.js'
+import RayCaster from './RayCaster.js';
+
 
 let instance = null;
 export default class PWA {
@@ -31,23 +34,32 @@ export default class PWA {
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
-        this.treeHut = new TreeHut();
+        this.island = new Island();
         this.hdriLoader = new HdriLoader();
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
+        this.rayCaster = new RayCaster();
+        //this.treeHut = new TreeHut();
+        
+
+        const axesHelper = new THREE.AxesHelper(20);
+        axesHelper.position.set(0, 20, 0)
+        axesHelper.setColors(0xff0000, 0x00ff00, 0x0000ff)
+        this.scene.add(axesHelper);
 
 
 
+        // const light = new THREE.HemisphereLight(0xffffff, 0x000000, 2);
+        // light.position.set(0, 15, 0);
+        // this.scene.add(light);
+
+        
         window.addEventListener("resize", () => {
             this.resize();
         })
 
         this.time.on('tick', () => {
             this.update();
-        })
-
-        window.addEventListener('click', () => {
-            this.myCamera.lowerHutTransition()
         })
 
 

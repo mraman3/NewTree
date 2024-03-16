@@ -1,4 +1,3 @@
-import * as THREE from 'three'
 import PWA from '../PWA'
 
 export default class TreeHut {
