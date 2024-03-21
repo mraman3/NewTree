@@ -18,10 +18,10 @@ export default class RayCaster {
 
         //POI HITBOXES 
         this.mountainHitBox = new THREE.Mesh(
-            new THREE.BoxGeometry(6, 15, 7),
+            this.pwa.island.mountain.geometry,
             this.hitBoxMaterial
         )
-        this.mountainHitBox.position.set(0.5, 6, -1)
+        this.mountainHitBox.position.set(-0.33, 2, -0.9)
         this.scene.add(this.mountainHitBox);
 
         //MountainTopHitBox

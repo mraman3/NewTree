@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import PWA from '../PWA'
 
 export default class Island {
@@ -21,13 +22,13 @@ export default class Island {
 
             this.mountain = this.model.children.find(child => child.name === 'mountain')
 
-            this.lightBeam = this.model.children.find(child => child.name === 'LightBeam')
-            this.lightBeam.material.opacity = 0.15   
-            
-            
-            this.water = this.model.children.find(child => child.name === 'Water')
-            this.water.scale.set(1.5,0.75 ,1.5)
 
+            this.lightBeam = this.model.children.find(child => child.name === 'LightBeam')
+            this.lightBeam.material.opacity = 0.15               
+            this.water = this.model.children.find(child => child.name === 'Water')
+            this.water.scale.set(1.75,0.75 ,1.75)
+
+         
             this.scene.add(this.model)
         })
     }

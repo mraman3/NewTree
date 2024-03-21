@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import PWA from '../PWA.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
@@ -15,6 +16,9 @@ export default class Resources extends EventEmitter {
         this.items = {}
         this.toLoad = this.sources.length
         this.loaded = 0
+
+        this.video = {}
+        this.videoTexture = {}
 
         this.setLoaders()
         this.startLoading()
@@ -48,6 +52,23 @@ export default class Resources extends EventEmitter {
                         this.sourceLoaded(source, file)
                     }
                 )
+            }
+            else if (source.type === 'videoTexture') {
+                this.video[source.name] = document.createElement('video')
+
+                this.video[source.name].src = source.path
+
+                this.video[source.name].muted = true
+                this.video[source.name].playsInline = true
+                this.video[source.name].autoplay = true
+                this.video[source.name].loop = true
+                // this.video[source.name].play()
+
+                this.videoTexture[source.name] = new THREE.VideoTexture(this.video[source.name])
+                
+
+                this.sourceLoaded(source, this.videoTexture[source.name])
+
             }
         }
     }

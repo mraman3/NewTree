@@ -1,19 +1,24 @@
 export default [
     // Models
     {
-        name: 'treeModel',
-        type: 'gltfModel',
-        path: 'Assets/Tree/SortedTree.gltf'
-    },
-    {
         name: 'islandModel',
         type: 'gltfModel',
         path: 'Assets/Island/Island.gltf'
     },
-    //HDRI
     {
-        name: 'lightingHDR',
-        type: 'HDR',
-        path: 'Assets/MR_INT-001_NaturalStudio_NAD.hdr'
+        name: 'signsModel',
+        type: 'gltfModel',
+        path: 'Assets/Signs/signs.gltf'
+    },
+    {
+        name: 'bearModel',
+        type: 'gltfModel',
+        path: 'Assets/cubdancing.gltf'
+    },
+    // Videos
+    {
+        name: 'R6',
+        type: 'videoTexture',
+        path: 'Assets/ghgh.mp4'
     }
 ]

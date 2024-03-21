@@ -46,6 +46,7 @@ export default class Renderer {
 
     update() {
         this.composer.render();
+        //this.instance.render(this.scene, this.myCamera.instance);
         this.composer.setPixelRatio(2)
     }
 
