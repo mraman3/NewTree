@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import PWA from '../PWA.js';
-import { AnimationMixer } from 'three';
 
 export default class Bear {
     constructor() {
@@ -20,7 +19,7 @@ export default class Bear {
             this.bear = this.resource.scene
 
             this.bear.scale.set(0.5, 0.5, 0.5)
-            this.bear.position.set(0, 14.7, -0.3)
+            this.bear.position.set(-0.1, 14.55, 0)
 
             this.mixer = new THREE.AnimationMixer(this.bear);
             this.action = this.mixer.clipAction(this.resource.animations[0]);

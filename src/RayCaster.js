@@ -16,7 +16,7 @@ export default class RayCaster {
         this.hitBoxMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true })
 
 
-        //POI HITBOXES 
+        //POI HITBOXES -------------------------------------------------------------------------------
         this.mountainHitBox = new THREE.Mesh(
             this.pwa.island.mountain.geometry,
             this.hitBoxMaterial
@@ -24,63 +24,189 @@ export default class RayCaster {
         this.mountainHitBox.position.set(-0.33, 2, -0.9)
         this.scene.add(this.mountainHitBox);
 
-        //MountainTopHitBox
-        this.mountainTopHitBox = new THREE.Mesh(
-            new THREE.BoxGeometry(3.9, 2, 3.9),
+        //MountainTopHitBox  
+        this.mountainTopBaseHitBox = new THREE.Mesh(
+            this.pwa.island.topBase.geometry,
             this.hitBoxMaterial
         )
-        this.mountainTopHitBox.position.set(0, 15, 0)
-        this.scene.add(this.mountainTopHitBox);
+        this.mountainTopBaseHitBox.position.set(-2.8, 0, -3.35)
+        this.scene.add(this.mountainTopBaseHitBox);
+        this.mountainTopPillarHitBox = new THREE.Mesh(
+            this.pwa.island.topPillars.geometry,
+            this.hitBoxMaterial
+        )
+        this.mountainTopPillarHitBox.position.set(-2.8, 0, -3.35)
+        this.scene.add(this.mountainTopPillarHitBox);
 
         //MineHitBox
         this.mineHitBox = new THREE.Mesh(
-            new THREE.BoxGeometry(4.8, 2.8, 4.8),
+            this.pwa.island.mineCave.geometry,
             this.hitBoxMaterial
         )
-        this.mineHitBox.position.set(12.4, 2, -0.76)
+        this.mineHitBox.scale.set(0.48, 0.48, 0.48)
+        this.mineHitBox.position.set(13.8, 0.5, -2.67)
         this.scene.add(this.mineHitBox);
 
         //GreenHouseHitBox
         this.greenHouseHitBox = new THREE.Mesh(
-            new THREE.BoxGeometry(2.5, 2.5, 4),
+            this.pwa.island.greenHouse.geometry,
             this.hitBoxMaterial
         )
-        this.greenHouseHitBox.position.set(-0.6, 5, -8.6)
+        this.greenHouseHitBox.rotateY(3.38)
+        this.greenHouseHitBox.scale.set(0.315, 0.315, 0.315)
+        this.greenHouseHitBox.position.set(-0.52, 5.21, -7.4)
         this.scene.add(this.greenHouseHitBox);
 
         //TopPortalHitBox
         this.topPortalHitBox = new THREE.Mesh(
-            new THREE.BoxGeometry(4.8, 4.8, 3.5),
+            this.pwa.island.runeStone.geometry,
             this.hitBoxMaterial
         )
-        this.topPortalHitBox.position.set(-5.2, 10, -1)
+        this.topPortalHitBox.rotateY(1.37)
+        this.topPortalHitBox.scale.set(0.75, 0.75, 0.75)
+        this.topPortalHitBox.position.set(-3.6, 9.5, -1.5)
         this.scene.add(this.topPortalHitBox);
 
-        this.mountainTopHitBox.visible = false
+        //POI
+        this.mountainTopBaseHitBox.visible = false
+        this.mountainTopPillarHitBox.visible = false
         this.mineHitBox.visible = false
         this.greenHouseHitBox.visible = false
         this.topPortalHitBox.visible = false
         this.mountainHitBox.visible = false
 
+        //Sign HitBoxes  ------------------------------------------------------------------------------- 
+        //Sign 1
+        this.sign1 = new THREE.Mesh(
+            this.pwa.signs.sign1.geometry,
+            this.hitBoxMaterial
+        )
+        this.sign1.position.set(-2.48, 1.1, 14.73)
+        this.sign1.rotateY(5.12)
+        this.sign1.rotateX(0.12)
+        this.scene.add(this.sign1);
+
+        //sign 2
+        this.sign2 = new THREE.Mesh(
+            this.pwa.signs.sign2.geometry,
+            this.hitBoxMaterial
+        )
+        this.sign2.position.set(-1.45, 1.88, 14.46)
+        this.sign2.rotateY(4.8)
+        this.sign2.rotateX(1.6)
+        this.scene.add(this.sign2);
+
+        //sign 3
+        this.sign3 = new THREE.Mesh(
+            this.pwa.signs.sign3.geometry,
+            this.hitBoxMaterial
+        )
+        this.sign3.position.set(-1.465, 1.37, 14.51)
+        this.sign3.rotateY(1.57)
+        this.sign3.rotateZ(3.14)
+        this.sign3.rotateX(6.11)
+        this.sign3.scale.set(10, 1, 1)
+        this.scene.add(this.sign3);
+
+        //sign 4
+        this.sign4 = new THREE.Mesh(
+            this.pwa.signs.sign4.geometry,
+            this.hitBoxMaterial
+        )
+        this.sign4.position.set(-1.42, 0.97, 14.51)
+        this.sign4.rotateY(4.61)
+        this.sign4.rotateX(6.185)
+        this.scene.add(this.sign4);
+
+        //sign 5
+        this.sign5 = new THREE.Mesh(
+            this.pwa.signs.sign5.geometry,
+            this.hitBoxMaterial
+        )
+        this.sign5.position.set(-0.43, 1.15, 14.765)
+        this.sign5.rotateY(1.05)
+        this.sign5.rotateX(6.79)
+        this.scene.add(this.sign5);
+
+        this.sign1.visible = false
+        this.sign2.visible = false
+        this.sign3.visible = false
+        this.sign4.visible = false
+        this.sign5.visible = false
+
+        //Back Signs HitBoxes  ------------------------------------------------------------------------------- 
+        this.back1 = new THREE.Mesh(
+            this.pwa.signs.sign1.geometry,
+            this.hitBoxMaterial
+        )
+        this.back1.scale.set(1.5, 1.25, 1.25)
+        this.back1.rotateY(3.14)
+        this.back1.position.set(-7, 8.23, -2.58)
+        this.scene.add(this.back1);
+
+        this.back2 = new THREE.Mesh(
+            this.pwa.signs.sign1.geometry,
+            this.hitBoxMaterial
+        )
+        this.back2.scale.set(1.5, 1.25, 1.25)
+        this.back2.rotateY(3.75)
+        this.back2.position.set(2.35, 14.4, 0.92)
+        this.scene.add(this.back2);
+
+        this.back3 = new THREE.Mesh(
+            this.pwa.signs.sign1.geometry,
+            this.hitBoxMaterial
+        )
+        this.back3.scale.set(1.5, 1.25, 1.25)
+        this.back3.rotateY(.75)
+        this.back3.position.set(-2.1, 5.27, -7.86)
+        this.scene.add(this.back3);
+
+        this.back4 = new THREE.Mesh(
+            this.pwa.signs.sign1.geometry,
+            this.hitBoxMaterial
+        )
+        this.back4.scale.set(1.5, 1.25, 1.25)
+        this.back4.rotateY(.75)
+        this.back4.position.set(12.83, 1.35, 1.75)
+        this.scene.add(this.back4);
+
+        this.back1.visible = false
+        this.back2.visible = false
+        this.back3.visible = false
+        this.back4.visible = false
+
         //HitBox Array
         this.hitBoxesToTest = [
-            this.mountainTopHitBox,
+            //signs
+            this.sign1,
+            this.sign2,
+            this.sign3,
+            this.sign4,
+            this.sign5,
+            //POIS
+            this.mountainTopBaseHitBox,
+            this.mountainTopPillarHitBox,
             this.mineHitBox,
             this.greenHouseHitBox,
             this.topPortalHitBox,
             this.mountainHitBox
         ]
 
+        this.buttonsToTest = [
+            this.back1,
+            this.back2,
+            this.back3,
+            this.back4
+        ]
+
         this.touchedPoints = []
         window.addEventListener('pointerdown', (event) => {
             this.touchedPoints.push(event.pointerId)
-
             this.cursorXMin = Math.abs((event.clientX / this.sizes.width * 2 - 1) * 0.9)
             this.cursorXMax = Math.abs((event.clientX / this.sizes.width * 2 - 1) * 1.1)
-
             this.cursorYMin = Math.abs((event.clientY / this.sizes.height * 2 - 1) * 0.9)
             this.cursorYMax = Math.abs((event.clientY / this.sizes.height * 2 - 1) * 1.1)
-
         })
 
         // Click listener
@@ -106,44 +232,91 @@ export default class RayCaster {
         this.raycaster.setFromCamera(cursor, this.myCamera.instance)
 
         //Object click listener
+        this.intersectsObjects = this.raycaster.intersectObjects(this.buttonsToTest)
+        if (this.intersectsObjects.length) {
+            this.selectedButton = this.intersectsObjects[0].object
+            switch (this.selectedButton) {
+                //backs 
+                case this.back1:
+                case this.back2:
+                case this.back4:
+                    console.log("pressed")
+                    this.myCamera.disbleControls();
+                    this.myCamera.transitions.homeDock();
+                    setTimeout(() => {
+                        this.myCamera.camAngles.homeDock();
+                        this.myCamera.enableControls();
+                    }, 2000);
+                    break
+
+                case this.back3:
+                    console.log("pressed")
+                    this.myCamera.disbleControls();
+                    this.myCamera.transitions.default();
+                    setTimeout(() => {
+                        this.myCamera.camAngles.homeDock();
+                        this.myCamera.enableControls();
+                    }, 2000);
+                    break
+            }
+
+        }
+        //Object click listener
         this.intersectsHitBox = this.raycaster.intersectObjects(this.hitBoxesToTest)
         if (this.intersectsHitBox.length) {
             this.selectedHitBox = this.intersectsHitBox[0].object
-
             switch (this.selectedHitBox) {
-                // Menu
-                case this.mountainTopHitBox:
+                case this.sign2:
+                case this.mountainTopBaseHitBox:
+                case this.mountainTopPillarHitBox:
                     this.myCamera.disbleControls();
-                    this.myCamera.topBaseTransition();
+                    this.myCamera.transitions.topBaseTransition()
                     setTimeout(() => {
+                        this.myCamera.camAngles.topBaseAngle()
                         this.myCamera.enableControls();
-                    }, 5000);
+                    }, 2000);
                     break
 
+                case this.sign4:
                 case this.mineHitBox:
                     this.myCamera.disbleControls();
-                    this.myCamera.caveMineTransition();
+                    this.myCamera.transitions.caveMineTransition();
                     setTimeout(() => {
+                        this.myCamera.camAngles.mineAngle();
                         this.myCamera.enableControls();
-                    }, 5000);
+                    }, 2000);
                     break
 
                 case this.greenHouseHitBox:
                     this.myCamera.disbleControls();
-                    this.myCamera.greenHouseTransition();
+                    this.myCamera.transitions.greenHouseTransition();
                     setTimeout(() => {
+                        this.myCamera.camAngles.greenHouseAngle();
                         this.myCamera.enableControls();
-                    }, 5000);
+                    }, 2000);
                     break
 
+                case this.sign3:
                 case this.topPortalHitBox:
                     this.myCamera.disbleControls();
-                    this.myCamera.topPortalTransition();
+                    this.myCamera.transitions.topPortalTransition();
                     setTimeout(() => {
                         this.myCamera.enableControls();
-                    }, 5000);
+                        this.myCamera.camAngles.topPortalAngle();
+                    }, 2000);
                     break
 
+                case this.sign5:
+                    this.myCamera.disbleControls();
+                    this.myCamera.transitions.greenHouseArcTransition();
+                    setTimeout(() => {
+                        this.myCamera.camAngles.greenHouseAngle();
+                        this.myCamera.enableControls();
+                    }, 4000);
+                    break
+
+                case this.sign1:
+                    break
             }
 
 

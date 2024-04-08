@@ -5,17 +5,18 @@ import MyCamera from './MyCamera.js';
 import Renderer from './Renderer.js';
 import Time from './Tools/Time.js';
 import Sizes from './Tools/Sizes.js';
-
+import Performance from './Performance.js';
 
 import Resources from './Tools/Resources.js';
 import sources from './sources.js'
 import RayCaster from './RayCaster.js';
 
 import Island from './Models/Island.js';
-import Vids from './Models/Vids.js';
+import MineSigns from './Models/MineSigns.js';
 import Bear from './Models/Bear.js';
 import Signs from './Models/Signs.js';
-import HdriLoader from './Models/HdriLoader.js';
+import BackSign from './Models/BackSign.js';
+import CubHead from './Models/CubHead.js';
 
 
 let instance = null;
@@ -39,13 +40,15 @@ export default class PWA {
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
+        this.preformace = new Performance();
 
         //models
         this.island = new Island();
-        this.vids = new Vids();
+        this.vids = new MineSigns();
         this.bear = new Bear();
         this.signs = new Signs();
-        //this.hdriLoader = new HdriLoader();
+        this.backSign = new BackSign();
+        this.cubHead = new CubHead();
 
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
@@ -61,23 +64,23 @@ export default class PWA {
         this.scene.add(axesHelper);
 
 
+
+        const light5 = new THREE.HemisphereLight(0xffffff, 0x0000C8, 3);
+        light5.position.set(0, 15, -20);
+        this.scene.add(light5);
         this.scene.fog = new THREE.Fog(0x000000, 0, 68)
 
-        const light5 = new THREE.HemisphereLight(0xffffff, 0x000000, 2.3);
-        light5.position.set(0, 15, -20);
-        //this.scene.add(light5);
 
-        const light = new THREE.RectAreaLight(0xffffff, 20, 20, 8);
-        light.position.set(0, 35, 0);
-        light.lookAt(0, 0, 0)
-        this.scene.add(light);
+
 
         window.addEventListener("resize", () => {
             this.resize();
         })
 
-        this.time.on('tick', () => {
-            this.update();
+        this.resources.on('ready', () => {
+            this.time.on('tick', () => {
+                this.update();
+            })
         })
 
 
@@ -91,11 +94,12 @@ export default class PWA {
     }
 
     update() {
-
-        this.renderer.update();
         this.myCamera.update();
+        this.renderer.update();
+        
         this.bear.update();
-
+        this.cubHead.update();  
+        this.preformace.update();
     }
 
     loadAssests() {

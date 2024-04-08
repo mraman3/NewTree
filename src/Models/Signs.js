@@ -24,7 +24,11 @@ export default class Signs {
             light.position.set(-1.8, 1.5, 15.6);
             this.scene.add(light);
 
-            this.topSignHitBox = this.model.children.find(child => child.name === 'sign2')
+            this.sign1 = this.model.children.find(child => child.name === 'sign1')
+            this.sign2 = this.model.children.find(child => child.name === 'sign2')
+            this.sign3 = this.model.children.find(child => child.name === 'sign3')
+            this.sign4 = this.model.children.find(child => child.name === 'sign4')
+            this.sign5 = this.model.children.find(child => child.name === 'sign5')
 
             this.scene.add(this.model)
         })

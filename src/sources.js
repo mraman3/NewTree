@@ -11,14 +11,34 @@ export default [
         path: 'Assets/Signs/signs.gltf'
     },
     {
+        name: 'backModel',
+        type: 'gltfModel',
+        path: 'Assets/Back/BackGroup.gltf'
+    },
+    {
         name: 'bearModel',
         type: 'gltfModel',
         path: 'Assets/cubdancing.gltf'
     },
+    {
+        name: 'mineSignsModel',
+        type: 'gltfModel',
+        path: 'Assets/MineSigns/MignSigns.gltf'
+    },
+    {
+        name: 'cubHeadModel',
+        type: 'gltfModel',
+        path: 'Assets/CubHead/cubHead.gltf'
+    },
     // Videos
     {
-        name: 'R6',
+        name: 'hoodie',
         type: 'videoTexture',
-        path: 'Assets/ghgh.mp4'
+        path: 'Assets/hoodie.mp4'
+    },
+    {
+        name: 'merch',
+        type: 'videoTexture',
+        path: 'Assets/merchFlipped.mp4'
     }
 ]

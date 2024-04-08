@@ -17,19 +17,26 @@ export default class Island {
         this.resources.on('ready', () => {
             console.log(this.resources.items)
             this.resource = this.resources.items.islandModel
-            this.model = this.resource.scene
-            this.model.position.set(-2.8, 0, -3.35)
+            this.island = this.resource.scene
+            this.island.position.set(-2.8, 0, -3.35)
 
-            this.mountain = this.model.children.find(child => child.name === 'mountain')
+            this.mountain = this.island.children.find(child => child.name === 'mountain')
+            this.runeStone = this.island.children.find(child => child.name === 'RuneStone')
+
+            this.greenHouse = this.island.children.find(child => child.name === 'GreenHouse').children.find(child => child.name === 'Plane005_2')
+            this.mineCave = this.island.children.find(child => child.name === 'MineCave').children.find(child => child.name === 'Plane006')
 
 
-            this.lightBeam = this.model.children.find(child => child.name === 'LightBeam')
+            this.lightBeam = this.island.children.find(child => child.name === 'LightBeam')
             this.lightBeam.material.opacity = 0.15               
-            this.water = this.model.children.find(child => child.name === 'Water')
+            this.water = this.island.children.find(child => child.name === 'Water')
             this.water.scale.set(1.75,0.75 ,1.75)
 
-         
-            this.scene.add(this.model)
+            this.watchBeam = this.island.children.find(child => child.name === 'WatchTower').children.find(child => child.name === 'Cylinder020')
+            this.topBase = this.island.children.find(child => child.name === 'TopBase').children.find(child => child.name === 'Mesh013')
+            this.topPillars = this.island.children.find(child => child.name === 'TopBase').children.find(child => child.name === 'Mesh013_1')
+
+            this.scene.add(this.island)
         })
     }
 }
