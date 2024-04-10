@@ -33,7 +33,9 @@ export default class Renderer {
     }
 
     createRenderer() {
-        this.instance = new THREE.WebGLRenderer({ canvas: this.canvas });
+        this.instance = new THREE.WebGLRenderer({
+            canvas: this.canvas
+        });
         this.instance.setSize(this.sizes.width, this.sizes.height);
         this.instance.setPixelRatio(2)
     }
@@ -47,7 +49,7 @@ export default class Renderer {
     update() {
         this.composer.render();
         //this.instance.render(this.scene, this.myCamera.instance);
-        this.composer.setPixelRatio(2)
+        this.composer.setPixelRatio(Math.min(window.devicePixelRatio, 2), 2)
     }
 
 }

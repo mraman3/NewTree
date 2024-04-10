@@ -67,6 +67,25 @@ export default class RayCaster {
         this.topPortalHitBox.position.set(-3.6, 9.5, -1.5)
         this.scene.add(this.topPortalHitBox);
 
+        //CubHeadHitBox
+        this.bearHeadHitbox = new THREE.Mesh(
+            this.pwa.cubHead.cubGeo.geometry,
+            this.hitBoxMaterial
+        )
+        this.bearHeadHitbox.rotateY(3.14)
+        this.bearHeadHitbox.scale.set(0.10, 0.10, 0.10)
+        this.bearHeadHitbox.position.set(-0.58, 6.075, -7.8)
+        this.scene.add(this.bearHeadHitbox);
+
+        //unityPortHitbox
+        this.unityPortHitbox = new THREE.Mesh(
+            this.pwa.island.portGeo.geometry,
+            this.hitBoxMaterial
+        )
+        this.unityPortHitbox.rotateX(1.5708)
+        this.unityPortHitbox.position.set(-2.8, 0, -3.35)
+        this.scene.add(this.unityPortHitbox);
+
         //POI
         this.mountainTopBaseHitBox.visible = false
         this.mountainTopPillarHitBox.visible = false
@@ -74,6 +93,8 @@ export default class RayCaster {
         this.greenHouseHitBox.visible = false
         this.topPortalHitBox.visible = false
         this.mountainHitBox.visible = false
+        this.bearHeadHitbox.visible = false
+        this.unityPortHitbox.visible = false
 
         //Sign HitBoxes  ------------------------------------------------------------------------------- 
         //Sign 1
@@ -185,10 +206,13 @@ export default class RayCaster {
             this.sign4,
             this.sign5,
             //POIS
+
+            this.bearHeadHitbox,
             this.mountainTopBaseHitBox,
             this.mountainTopPillarHitBox,
             this.mineHitBox,
             this.greenHouseHitBox,
+            this.unityPortHitbox,
             this.topPortalHitBox,
             this.mountainHitBox
         ]
@@ -242,9 +266,9 @@ export default class RayCaster {
                 case this.back4:
                     console.log("pressed")
                     this.myCamera.disbleControls();
+                    this.myCamera.camAngles.homeDock();
                     this.myCamera.transitions.homeDock();
                     setTimeout(() => {
-                        this.myCamera.camAngles.homeDock();
                         this.myCamera.enableControls();
                     }, 2000);
                     break
@@ -266,6 +290,19 @@ export default class RayCaster {
         if (this.intersectsHitBox.length) {
             this.selectedHitBox = this.intersectsHitBox[0].object
             switch (this.selectedHitBox) {
+                case this.bearHeadHitbox:
+                    this.path = "Z:/Documents/Code Tests and Stuff/NewTree/Assets/DeskMap.png";
+                    this.img = '<img src="' + this.path + '">';
+                    this.popup = window.open();
+                    this.popup.document.write(this.img);
+                    this.popup.print();
+                    break
+
+
+                case this.unityPortHitbox:
+                    window.open("https://cubhub.netlify.app/")
+                    break
+
                 case this.sign2:
                 case this.mountainTopBaseHitBox:
                 case this.mountainTopPillarHitBox:

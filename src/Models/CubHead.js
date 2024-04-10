@@ -20,7 +20,7 @@ export default class CubHead {
             this.resource = this.resources.items.cubHeadModel
             this.model = this.resource.scene
             this.model.position.set(-0.58, 5.8, -7.8)
-            this.model.scale.set(0.15,0.15,0.15)
+            this.model.scale.set(0.10, 0.10,0.10)
             this.model.rotateY(3.14)
 
             this.mixer = new THREE.AnimationMixer(this.model);
@@ -28,6 +28,8 @@ export default class CubHead {
             this.action.play()
 
             this.animationReady = true;
+
+            this.cubGeo = this.model.children.find(child => child.name === 'Head')
             
 
             this.scene.add(this.model)

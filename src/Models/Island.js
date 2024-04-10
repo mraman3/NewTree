@@ -24,8 +24,7 @@ export default class Island {
             this.runeStone = this.island.children.find(child => child.name === 'RuneStone')
 
             this.greenHouse = this.island.children.find(child => child.name === 'GreenHouse').children.find(child => child.name === 'Plane005_2')
-            this.mineCave = this.island.children.find(child => child.name === 'MineCave').children.find(child => child.name === 'Plane006')
-
+            this.mineCave = this.island.children.find(child => child.name === 'MineCave')
 
             this.lightBeam = this.island.children.find(child => child.name === 'LightBeam')
             this.lightBeam.material.opacity = 0.15               
@@ -35,6 +34,7 @@ export default class Island {
             this.watchBeam = this.island.children.find(child => child.name === 'WatchTower').children.find(child => child.name === 'Cylinder020')
             this.topBase = this.island.children.find(child => child.name === 'TopBase').children.find(child => child.name === 'Mesh013')
             this.topPillars = this.island.children.find(child => child.name === 'TopBase').children.find(child => child.name === 'Mesh013_1')
+            this.portGeo = this.island.children.find(child => child.name === 'Portals').children.find(child => child.name === 'portal_Cylinder004')
 
             this.scene.add(this.island)
         })

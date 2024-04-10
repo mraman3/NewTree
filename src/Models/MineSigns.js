@@ -9,26 +9,6 @@ export default class MineSigns {
         this.resources = this.pwa.resources
 
         this.resources.on('ready', () => {
-            
-            // const geometry = new THREE.BoxGeometry(0.7, 0.7, 0.7);
-            // this.newnew = new THREE.MeshBasicMaterial({ map: this.resources.videoTexture.hoodie })
-
-            // this.cube = new THREE.Mesh(geometry, this.newnew);
-            // this.resources.video.hoodie.play()
-            // this.cube.position.set(13, 1.25, -0.9);
-
-            // this.scene.add(this.cube)
-
-
-            // this.wireframe = new THREE.EdgesGeometry(geometry);
-            // this.lineBox = new THREE.LineSegments(
-            //     this.wireframe,
-            //     new THREE.MeshBasicMaterial({
-            //         color: 0x00FFFF,
-            //     })
-            // );
-            // this.lineBox.position.set(13, 1.25, -0.9);
-            // this.scene.add(this.lineBox);
 
             this.resource = this.resources.items.mineSignsModel
             this.model = this.resource.scene
