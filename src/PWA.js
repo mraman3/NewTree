@@ -9,6 +9,7 @@ import Performance from './Performance.js';
 
 import Resources from './Tools/Resources.js';
 import sources from './sources.js'
+import Sounds from './Sounds.js';
 import RayCaster from './RayCaster.js';
 
 import Island from './Models/Island.js';
@@ -17,6 +18,7 @@ import Bear from './Models/Bear.js';
 import Signs from './Models/Signs.js';
 import BackSign from './Models/BackSign.js';
 import CubHead from './Models/CubHead.js';
+import WelcomeSign from './Models/WelcomeSign.js';
 
 
 let instance = null;
@@ -40,6 +42,7 @@ export default class PWA {
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
+        this.sounds = new Sounds();
         this.preformace = new Performance();
 
         //models
@@ -49,6 +52,7 @@ export default class PWA {
         this.signs = new Signs();
         this.backSign = new BackSign();
         this.cubHead = new CubHead();
+        this.welcomeSign = new WelcomeSign();
 
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
@@ -68,9 +72,16 @@ export default class PWA {
         const light5 = new THREE.HemisphereLight(0xffffff, 0x0000C8, 3);
         light5.position.set(0, 15, -20);
         this.scene.add(light5);
-        this.scene.fog = new THREE.Fog(0x000000, 0, 68)
+        this.scene.fog = new THREE.Fog(0x29425e, 5, 68)
 
-
+        this.sphereGeo = new THREE.SphereGeometry(15, 32, 16);
+        this.sphereMaterial = new THREE.MeshMatcapMaterial({
+            color: 0xa7ca6d6,
+            side: THREE.DoubleSide
+        });
+        this.sphere = new THREE.Mesh(this.sphereGeo, this.sphereMaterial);
+        this.sphere.scale.set(4, 3, 4)
+        this.scene.add(this.sphere);
 
 
         window.addEventListener("resize", () => {
@@ -82,6 +93,8 @@ export default class PWA {
                 this.update();
             })
         })
+
+        this.sounds.playAtmosphere();
 
 
     }
@@ -96,10 +109,11 @@ export default class PWA {
     update() {
         this.myCamera.update();
         this.renderer.update();
-        
+
         this.bear.update();
-        this.cubHead.update();  
+        this.cubHead.update();
         this.preformace.update();
+        this.island.Update();
     }
 
     loadAssests() {

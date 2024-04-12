@@ -8,6 +8,7 @@ export default class RayCaster {
         this.scene = this.pwa.scene;
         this.sizes = this.pwa.sizes;
         this.myCamera = this.pwa.myCamera;
+        this.sounds = this.pwa.sounds;
 
         this.raycaster = new THREE.Raycaster();
         this.cursorDown = new THREE.Vector2();
@@ -15,6 +16,8 @@ export default class RayCaster {
 
         this.hitBoxMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true })
 
+        //sound
+        this.playWhooshBool = true
 
         //POI HITBOXES -------------------------------------------------------------------------------
         this.mountainHitBox = new THREE.Mesh(
@@ -119,14 +122,11 @@ export default class RayCaster {
 
         //sign 3
         this.sign3 = new THREE.Mesh(
-            this.pwa.signs.sign3.geometry,
+            new THREE.BoxGeometry(1, 1, 1),
             this.hitBoxMaterial
         )
-        this.sign3.position.set(-1.465, 1.37, 14.51)
-        this.sign3.rotateY(1.57)
-        this.sign3.rotateZ(3.14)
-        this.sign3.rotateX(6.11)
-        this.sign3.scale.set(10, 1, 1)
+        this.sign3.position.set(-1.5, 1.37, 14.51)
+        this.sign3.scale.set(0.8, 0.23, 0.2)
         this.scene.add(this.sign3);
 
         //sign 4
@@ -264,23 +264,31 @@ export default class RayCaster {
                 case this.back1:
                 case this.back2:
                 case this.back4:
-                    console.log("pressed")
-                    this.myCamera.disbleControls();
-                    this.myCamera.camAngles.homeDock();
-                    this.myCamera.transitions.homeDock();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.enableControls();
-                    }, 2000);
+                        this.sounds.playWhoosh();
+                        this.myCamera.disbleControls();
+                        this.myCamera.camAngles.homeDock();
+                        this.myCamera.transitions.homeDock();
+                        setTimeout(() => {
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
+                    this.playWhooshBool = true
                     break
 
                 case this.back3:
-                    console.log("pressed")
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.default();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.camAngles.homeDock();
-                        this.myCamera.enableControls();
-                    }, 2000);
+                        this.sounds.playWhoosh();
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.default();
+                        setTimeout(() => {
+                            this.myCamera.camAngles.homeDock();
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
+                    this.playWhooshBool = true
                     break
             }
 
@@ -291,65 +299,97 @@ export default class RayCaster {
             this.selectedHitBox = this.intersectsHitBox[0].object
             switch (this.selectedHitBox) {
                 case this.bearHeadHitbox:
-                    this.path = "Z:/Documents/Code Tests and Stuff/NewTree/Assets/DeskMap.png";
-                    this.img = '<img src="' + this.path + '">';
-                    this.popup = window.open();
-                    this.popup.document.write(this.img);
-                    this.popup.print();
+                    this.sounds.playClick();
+                    window.open("https://www.cubhubx.com/")
                     break
 
-
                 case this.unityPortHitbox:
+                    this.sounds.playClick();
                     window.open("https://cubhub.netlify.app/")
                     break
 
                 case this.sign2:
                 case this.mountainTopBaseHitBox:
                 case this.mountainTopPillarHitBox:
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.topBaseTransition()
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.camAngles.topBaseAngle()
-                        this.myCamera.enableControls();
-                    }, 2000);
+                        if (this.playWhooshBool == true) {
+                            this.sounds.playWhoosh();
+                            this.playWhooshBool = false
+                        }
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.topBaseTransition()
+                        setTimeout(() => {
+                            this.myCamera.camAngles.topBaseAngle()
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
                     break
 
                 case this.sign4:
                 case this.mineHitBox:
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.caveMineTransition();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.camAngles.mineAngle();
-                        this.myCamera.enableControls();
-                    }, 2000);
+                        if (this.playWhooshBool == true) {
+                            this.sounds.playWhoosh();
+                            this.playWhooshBool = false
+                        }
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.caveMineTransition();
+                        setTimeout(() => {
+                            this.myCamera.camAngles.mineAngle();
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
                     break
 
                 case this.greenHouseHitBox:
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.greenHouseTransition();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.camAngles.greenHouseAngle();
-                        this.myCamera.enableControls();
-                    }, 2000);
+                        if (this.playWhooshBool == true) {
+                            this.sounds.playWhoosh();
+                            this.playWhooshBool = false
+                        }
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.greenHouseTransition();
+                        setTimeout(() => {
+                            this.myCamera.camAngles.greenHouseAngle();
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
                     break
 
                 case this.sign3:
                 case this.topPortalHitBox:
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.topPortalTransition();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.enableControls();
-                        this.myCamera.camAngles.topPortalAngle();
-                    }, 2000);
+                        if (this.playWhooshBool == true) {
+                            this.sounds.playWhoosh();
+                            this.playWhooshBool = false
+                        }
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.topPortalTransition();
+                        setTimeout(() => {
+                            this.myCamera.enableControls();
+                            this.myCamera.camAngles.topPortalAngle();
+                        }, 2000);
+                    }, 500);
                     break
 
                 case this.sign5:
-                    this.myCamera.disbleControls();
-                    this.myCamera.transitions.greenHouseArcTransition();
+                    this.sounds.playClick();
                     setTimeout(() => {
-                        this.myCamera.camAngles.greenHouseAngle();
-                        this.myCamera.enableControls();
-                    }, 4000);
+                        if (this.playWhooshBool == true) {
+                            this.sounds.playWhoosh();
+                            this.playWhooshBool = false
+                        }
+                        this.myCamera.disbleControls();
+                        this.myCamera.transitions.greenHouseArcTransition();
+                        setTimeout(() => {
+                            this.myCamera.camAngles.greenHouseAngle();
+                            this.myCamera.enableControls();
+                        }, 2000);
+                    }, 500);
                     break
 
                 case this.sign1:
@@ -358,7 +398,6 @@ export default class RayCaster {
 
 
         }
-
     }
 
 

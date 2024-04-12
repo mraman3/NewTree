@@ -127,7 +127,7 @@ export default class MyCamera {
                 duration: 2, ease: "power1.inOut",
                 x: 17,
                 y: 2,
-                z: -1.8,
+                z: 0,
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -139,7 +139,7 @@ export default class MyCamera {
         }
 
         this.transitions.greenHouseArcTransition = () => {
-            this.controls.autoRotateSpeed = 20
+            this.controls.autoRotateSpeed = 30
             this.controls.autoRotate = true
             this.checkVal = true
         }

@@ -1,6 +1,11 @@
 export default [
     // Models
     {
+        name: 'welcomeSignModel',
+        type: 'gltfModel',
+        path: 'Assets/WelcomeSign/IslandSign.gltf'
+    },
+    {
         name: 'islandModel',
         type: 'gltfModel',
         path: 'Assets/Island/Island.gltf'

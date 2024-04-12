@@ -30,6 +30,11 @@ export default class Signs {
             this.sign4 = this.model.children.find(child => child.name === 'sign4')
             this.sign5 = this.model.children.find(child => child.name === 'sign5')
 
+            this.post1 = this.model.children.find(child => child.name === 'post1')
+
+            this.sign1.visible = false
+            this.post1.visible = false
+
             this.scene.add(this.model)
         })
     }
