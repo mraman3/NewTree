@@ -218,6 +218,7 @@ export default class RayCaster {
         ]
 
         this.buttonsToTest = [
+            this.mountainHitBox,
             this.back1,
             this.back2,
             this.back3,
