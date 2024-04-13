@@ -3,47 +3,47 @@ export default [
     {
         name: 'welcomeSignModel',
         type: 'gltfModel',
-        path: 'Assets/WelcomeSign/IslandSign.gltf'
+        path: '/WelcomeSign/IslandSign.gltf'
     },
     {
         name: 'islandModel',
         type: 'gltfModel',
-        path: 'Assets/Island/Island.gltf'
+        path: '/Island/Island.gltf'
     },
     {
         name: 'signsModel',
         type: 'gltfModel',
-        path: 'Assets/Signs/signs.gltf'
+        path: '/Signs/signs.gltf'
     },
     {
         name: 'backModel',
         type: 'gltfModel',
-        path: 'Assets/Back/BackGroup.gltf'
+        path: '/Back/BacKGroup.gltf'
     },
     {
         name: 'bearModel',
         type: 'gltfModel',
-        path: 'Assets/cubdancing.gltf'
+        path: '/cubdancing.gltf'
     },
     {
         name: 'mineSignsModel',
         type: 'gltfModel',
-        path: 'Assets/MineSigns/MignSigns.gltf'
+        path: '/MineSigns/MignSigns.gltf'
     },
     {
         name: 'cubHeadModel',
         type: 'gltfModel',
-        path: 'Assets/CubHead/cubHead.gltf'
+        path: '/CubHead/cubHead.gltf'
     },
     // Videos
     {
         name: 'hoodie',
         type: 'videoTexture',
-        path: 'Assets/hoodie.mp4'
+        path: '/hoodie.mp4'
     },
     {
         name: 'merch',
         type: 'videoTexture',
-        path: 'Assets/merchFlipped.mp4'
+        path: '/merchFlipped.mp4'
     }
 ]

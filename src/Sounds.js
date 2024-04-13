@@ -1,9 +1,9 @@
 import PWA from './PWA'
 import {Howl, Howler} from 'howler'
 
-import click from '../Assets/Sounds/Click1.wav'
-import whoosh from '../Assets/Sounds/whoosh.wav'
-import atmosphere from '../Assets/Sounds/riv2.wav'
+import click from '/Sounds/Click1.wav'
+import whoosh from '/Sounds/whoosh.wav'
+import atmosphere from '/Sounds/riv2.wav'
 
 export default class Sounds{
     constructor(){
