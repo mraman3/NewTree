@@ -18,7 +18,8 @@ export default class Performance
         this.windowOpen = true
         this.setWindowVisibility()
 
-        this.fpsElement = document.getElementById("fps");
+        //UNCOMMENT TO SHOW FPS ON SCREEN ABOVE CANVAS 
+        //this.fpsElement = document.getElementById("fps");
 
     }
 
@@ -45,7 +46,7 @@ export default class Performance
         // Check Performance
         this.frameRate = 1000/this.frameTime
 
-        this.fpsElement.innerText = this.frameRate.toFixed(2);
+        this.fpsElement.innerText = "FPS: " + this.frameRate.toFixed(2);
     }
 
     
