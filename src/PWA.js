@@ -11,6 +11,7 @@ import Resources from './Tools/Resources.js';
 import sources from './sources.js'
 import Sounds from './Sounds.js';
 import RayCaster from './RayCaster.js';
+import Controller from './Controller.js';
 
 import Island from './Models/Island.js';
 import MineSigns from './Models/MineSigns.js';
@@ -57,7 +58,9 @@ export default class PWA {
         this.myCamera = new MyCamera();
         this.renderer = new Renderer();
         this.resources.on('ready', () => {
+            this.controller = new Controller();
             this.rayCaster = new RayCaster();
+            
         })
 
 
