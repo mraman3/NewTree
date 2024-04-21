@@ -294,6 +294,7 @@ export default class RayCaster {
             }
 
         }
+        
         //Object click listener
         this.intersectsHitBox = this.raycaster.intersectObjects(this.hitBoxesToTest)
         if (this.intersectsHitBox.length) {
