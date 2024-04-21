@@ -115,7 +115,8 @@ export default class PWA {
 
         this.bear.update();
         this.cubHead.update();
-        this.preformace.update();
+        //UNCOMMENT TO SHOW FPS ON SCREEN ABOVE CANVAS 
+        //this.preformace.update();
         this.island.Update();
     }
 

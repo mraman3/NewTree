@@ -18,8 +18,8 @@ export default class Performance
         this.windowOpen = true
         this.setWindowVisibility()
 
-        //UNCOMMENT TO SHOW FPS ON SCREEN ABOVE CANVAS 
-        //this.fpsElement = document.getElementById("fps");
+        
+        this.fpsElement = document.getElementById("fps");
 
     }
 
