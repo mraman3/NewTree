@@ -1,34 +1,70 @@
 body {
-    margin: 0;
-    overflow: hidden;
-  }
-  
-  .progress-bar-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #progress-bar {
-    width: 30%;
-    margin-top: 0.5%;
-    height: 2%;
-  }
-  
-  label {
-    color: rgba(255, 253, 208, 1);
-    font-size: 5rem;
-  }
-  
-  g{
-    fill: rgba(255, 253, 208, 1);
-  }
-  
+  margin: 0;
+  overflow:hidden
+}
+
+.progress-bar-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#progress-bar {
+  width: 30%;
+  margin-top: 0.5%;
+  height: 2%;
+}
+
+label {
+  color: rgba(255, 253, 208, 1);
+  font-size: 5rem;
+}
+
+g {
+  fill: rgba(255, 253, 208, 1);
+}
+
+.btnGroup{
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+
+}
+
+.button{
+  border: none;
+  color: white;
+  padding: 23px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inlne-block;
+  font-size: 16px;
+  margin: 5px 5px;
+  cursor: pointer;
+  background-color: #04AA6D;
+  border-radius: 50%;
+}
+
+.top{
+  padding: 20px 28px;
+
+}
+
+.Collectables{
+  padding: 23px 8px;
+  font-size: 13px;
+}
+
+.Coming{
+  padding: 23px 15px;
+}
