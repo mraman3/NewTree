@@ -40,11 +40,10 @@ export default class RayCaster {
 
         //MineHitBox
         this.mineHitBox = new THREE.Mesh(
-            this.pwa.island.mineCave.geometry,
+            new THREE.BoxGeometry( 2, 2.7, 4),
             this.hitBoxMaterial
         )
-        this.mineHitBox.scale.set(0.48, 0.48, 0.48)
-        this.mineHitBox.position.set(13.8, 0.5, -2.67)
+        this.mineHitBox.position.set(11, 2, -1)
         this.scene.add(this.mineHitBox);
 
         //GreenHouseHitBox
