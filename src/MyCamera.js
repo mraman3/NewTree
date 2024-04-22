@@ -10,6 +10,7 @@ export default class MyCamera {
         this.scene = this.pwa.scene;
         this.sizes = this.pwa.sizes;
 
+        this.camDegree;
 
         this.createCamera();
         this.setControls();
@@ -38,12 +39,10 @@ export default class MyCamera {
     setTransitions() {
         this.transitions = {}
 
-        this.transitions.homeDock = () => {
+        this.transitions.negZ = () => {
             gsap.to(this.instance.position, {
                 duration: 2, ease: "power1.inOut",
-                x: -3.2,
-                y: 1,
-                z: 22,
+                z: -22
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -54,16 +53,54 @@ export default class MyCamera {
             })
         }
 
-        this.transitions.default = () => {
-            console.log(this.instance.position.z)
-            if (this.instance.position.z > 0) {
-                this.zVal = 22;
-            } else if (this.instance.position.z < 0) {
-                this.zVal = -22;
-            }
+        this.transitions.posZ = () => {
             gsap.to(this.instance.position, {
                 duration: 2, ease: "power1.inOut",
-                z: -22
+                z: 22
+            })
+            gsap.to(this.controls.target, {
+                duration: 2,
+                ease: "power1.inOut",
+                x: 0,
+                y: 7,
+                z: 0,
+            })
+        }
+
+        this.transitions.posX = () => {
+            gsap.to(this.instance.position, {
+                duration: 2, ease: "power1.inOut",
+                x: 22
+            })
+            gsap.to(this.controls.target, {
+                duration: 2,
+                ease: "power1.inOut",
+                x: 0,
+                y: 7,
+                z: 0,
+            })
+        }
+
+        this.transitions.negX = () => {
+            gsap.to(this.instance.position, {
+                duration: 2, ease: "power1.inOut",
+                x: -22
+            })
+            gsap.to(this.controls.target, {
+                duration: 2,
+                ease: "power1.inOut",
+                x: 0,
+                y: 7,
+                z: 0,
+            })
+        }
+
+        this.transitions.homeDock = () => {
+            gsap.to(this.instance.position, {
+                duration: 2, ease: "power1.inOut",
+                x: -3.2,
+                y: 1,
+                z: 22,
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -111,7 +148,7 @@ export default class MyCamera {
                 duration: 2, ease: "power1.inOut",
                 x: -0.5,
                 y: 6,
-                z: -11.5,
+                z: -13,
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -141,7 +178,19 @@ export default class MyCamera {
         this.transitions.greenHouseArcTransition = () => {
             this.controls.autoRotateSpeed = 30
             this.controls.autoRotate = true
-            this.checkVal = true
+            this.checkGreenHouse = true
+        }
+
+        this.transitions.caveMineArcTransistion = () => {
+            this.controls.autoRotateSpeed = -30
+            this.controls.autoRotate = true
+            this.checkMineCave = true
+        }
+
+        this.transitions.topPortalArcTransistion = () => {
+            this.controls.autoRotateSpeed = 30
+            this.controls.autoRotate = true
+            this.checkTopPort = true
         }
     }
 
@@ -153,7 +202,7 @@ export default class MyCamera {
             this.controls.minPolarAngle = 0
             this.controls.maxPolarAngle = 1.855
             this.controls.minAzimuthAngle = 0
-            this.controls.maxAzimuthAngle = Math.PI * 1.999
+            this.controls.maxAzimuthAngle = Infinity
         }
 
         this.camAngles.topBaseAngle = () => {
@@ -173,6 +222,8 @@ export default class MyCamera {
         }
 
         this.camAngles.topPortalAngle = () => {
+            this.controls.minPolarAngle = 0
+            this.controls.maxPolarAngle = 1.855
             this.controls.enableRotate = false
         }
 
@@ -183,15 +234,6 @@ export default class MyCamera {
             this.controls.minAzimuthAngle = 1.5
             this.controls.maxAzimuthAngle = 4.5
         }
-    }
-
-    checkZ() {
-        if (this.instance.position.z <= -21) {
-            this.controls.autoRotate = false
-            this.checkVal = false
-            this.transitions.greenHouseTransition()
-        }
-        
     }
 
     enableControls() {
@@ -209,13 +251,36 @@ export default class MyCamera {
     resize() {
         this.instance.aspect = this.sizes.width / this.sizes.height;
         this.instance.updateProjectionMatrix();
-        console.log("X : " + this.instance.position.x + "z : " + this.instance.position.z + "y : " + this.instance.position.y)
     }
 
     update() {
         this.controls.update()
-        if (this.checkVal == true) {
-            this.checkZ()
+        this.camDegree = this.controls.getAzimuthalAngle() * (180 / Math.PI)
+
+        if (this.checkGreenHouse == true) {
+            if (this.camDegree >= -176 && this.camDegree <= -150) {
+                this.controls.autoRotate = false
+                this.checkGreenHouse = false
+
+                this.camAngles.homeDock()
+                this.transitions.greenHouseTransition()
+            }
+        } else if (this.checkMineCave == true) {
+            if (this.camDegree >= 80 && this.camDegree <= 120) {
+                this.controls.autoRotate = false
+                this.checkMineCave = false
+
+                this.camAngles.homeDock()
+                this.transitions.caveMineTransition()
+            }
+        } else if (this.checkTopPort == true) {
+            if (this.camDegree >= -135 && this.camDegree <= -70) {
+                this.controls.autoRotate = false
+                this.checkTopPort = false
+
+                this.camAngles.homeDock()
+                this.transitions.topPortalTransition()
+            }
         }
     }
 }
