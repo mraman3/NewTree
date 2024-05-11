@@ -20,8 +20,8 @@ export default class MyCamera {
 
     createCamera() {
         this.instance = new THREE.PerspectiveCamera(45, this.sizes.width / this.sizes.height)
-        this.instance.position.x = -3.2;
-        this.instance.position.y = 1;
+        this.instance.position.x = -3.5;
+        this.instance.position.y = 0;
         this.instance.position.z = 22;
         this.scene.add(this.instance);
     }
@@ -42,7 +42,8 @@ export default class MyCamera {
         this.transitions.negZ = () => {
             gsap.to(this.instance.position, {
                 duration: 2, ease: "power1.inOut",
-                z: -22
+                z: -22,
+                y: 16
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -98,8 +99,8 @@ export default class MyCamera {
         this.transitions.homeDock = () => {
             gsap.to(this.instance.position, {
                 duration: 2, ease: "power1.inOut",
-                x: -3.2,
-                y: 1,
+                x: -3.5,
+                y: 0,
                 z: 22,
             })
             gsap.to(this.controls.target, {
@@ -116,7 +117,7 @@ export default class MyCamera {
                 duration: 2, ease: "power1.inOut",
                 x: 0,
                 y: 15.6,
-                z: 4.8,
+                z: 6,
             })
             gsap.to(this.controls.target, {
                 duration: 2,
@@ -137,9 +138,9 @@ export default class MyCamera {
             gsap.to(this.controls.target, {
                 duration: 2,
                 ease: "power1.inOut",
-                x: 0,
-                y: 10.5,
-                z: 0,
+                x: -4,
+                y: 9,
+                z: -1,
             })
         }
 
@@ -147,7 +148,7 @@ export default class MyCamera {
             gsap.to(this.instance.position, {
                 duration: 2, ease: "power1.inOut",
                 x: -0.5,
-                y: 6,
+                y: 5,
                 z: -13,
             })
             gsap.to(this.controls.target, {
@@ -217,14 +218,16 @@ export default class MyCamera {
             this.controls.enableRotate = true
             this.controls.minPolarAngle = 0
             this.controls.maxPolarAngle = 1.6
-            this.controls.minAzimuthAngle = 0
-            this.controls.maxAzimuthAngle = 3.3
+            this.controls.minAzimuthAngle = 0.5
+            this.controls.maxAzimuthAngle = 3
         }
 
         this.camAngles.topPortalAngle = () => {
+            this.controls.enableRotate = true
             this.controls.minPolarAngle = 0
-            this.controls.maxPolarAngle = 1.855
-            this.controls.enableRotate = false
+            this.controls.maxPolarAngle = 1.75
+            this.controls.minAzimuthAngle = 3
+            this.controls.maxAzimuthAngle = 6
         }
 
         this.camAngles.greenHouseAngle = () => {
