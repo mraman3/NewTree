@@ -64,11 +64,11 @@ export default class PWA {
         })
 
 
-
-        const axesHelper = new THREE.AxesHelper(20);
-        axesHelper.position.set(0, 20, 0)
-        axesHelper.setColors(0xff0000, 0x00ff00, 0x0000ff)
-        this.scene.add(axesHelper);
+        // AXIS DISPLAY
+        // const axesHelper = new THREE.AxesHelper(20);
+        // axesHelper.position.set(0, 20, 0)
+        // axesHelper.setColors(0xff0000, 0x00ff00, 0x0000ff)
+        // this.scene.add(axesHelper);
 
 
 
