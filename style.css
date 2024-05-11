@@ -1,8 +1,10 @@
+/* Css for Main Body/Canvas overFlow*/
 body {
   margin: 0;
   overflow:hidden
 }
 
+/* Css for Progress Bar*/
 .progress-bar-container {
   position: absolute;
   left: 50%;
@@ -32,39 +34,133 @@ g {
   fill: rgba(255, 253, 208, 1);
 }
 
-.btnGroup{
+
+
+/* New Button Group */
+
+
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
   position: absolute;
   left: 50%;
-  top: 95%;
+  top: 89%;
   transform: translate(-50%, -50%);
-  display: inline-flex;
-
 }
 
-.button{
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
   border: none;
-  color: white;
-  padding: 23px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inlne-block;
-  font-size: 16px;
-  margin: 5px 5px;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  transition: .2s ease-in-out;
+}
+
+.instagram {
+  margin-top: 1.1em;
+  margin-left: 0.5em;
+  fill: #cc39a4;
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  transition: .2s ease-in-out;
+}
+
+.twitter {
+  margin-top: 1em;
+  margin-left: -1.5em;
+  fill: #03A9F4;
+}
+
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  transition: .2s ease-in-out;
+}
+
+.github {
+  margin-bottom: 1em;
+  margin-left: 1em;
+  fill: black;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  transition: .2s ease-in-out;
+}
+
+.discord {
+  margin-bottom: 0.5em;
+  margin-left: -1em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
   cursor: pointer;
-  background-color: #04AA6D;
-  border-radius: 50%;
+  scale: 1.1;
+  background-color: #cc39a4;
 }
 
-.top{
-  padding: 20px 28px;
-
+.card1:hover .instagram {
+  fill: white;
 }
 
-.Collectables{
-  padding: 23px 8px;
-  font-size: 13px;
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03A9F4;
 }
 
-.Coming{
-  padding: 23px 15px;
+.card2:hover .twitter {
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #8c9eff;
+}
+
+.card4:hover .discord {
+  fill: white;
 }
