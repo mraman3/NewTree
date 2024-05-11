@@ -17,6 +17,7 @@ export default class Controller {
         this.isFree = true
 
         const btns = document.querySelector('.btnGroup');
+        const ani = document.querySelector('.lds-hourglass');
         const buttonHideTime = 6000
 
         this.setCamControls();
@@ -25,6 +26,8 @@ export default class Controller {
 
         document.getElementById("Top").onclick = function () {
             btns.style.display = 'none';
+            ani.style.display = 'flex'
+
             this.pwa = new PWA();
             this.controller = this.pwa.controller
             this.myCamera = this.pwa.myCamera
@@ -62,12 +65,14 @@ export default class Controller {
                 this.controller.buttonControls.topBase()
             }
             setTimeout(() => {
+                ani.style.display = 'none'
                 btns.style.display = 'inline-flex';
             }, buttonHideTime);
         }
 
         document.getElementById("Abyss").onclick = function () {
             btns.style.display = 'none';
+            ani.style.display = 'flex'
             this.pwa = new PWA();
             this.controller = this.pwa.controller
             this.myCamera = this.pwa.myCamera
@@ -104,12 +109,14 @@ export default class Controller {
                 this.controller.buttonControls.topPortal()
             }
             setTimeout(() => {
+                ani.style.display = 'none'
                 btns.style.display = 'inline-flex';
             }, buttonHideTime);
         }
 
         document.getElementById("Collectables").onclick = function () {
             btns.style.display = 'none';
+            ani.style.display = 'flex'
             this.pwa = new PWA();
             this.controller = this.pwa.controller
             this.myCamera = this.pwa.myCamera
@@ -147,12 +154,14 @@ export default class Controller {
                 this.controller.buttonControls.mineCave();
             }
             setTimeout(() => {
+                ani.style.display = 'none'
                 btns.style.display = 'inline-flex';
             }, buttonHideTime);
         }
 
         document.getElementById("Coming").onclick = function () {
             btns.style.display = 'none';
+            ani.style.display = 'flex'
             this.pwa = new PWA();
 
             this.controller = this.pwa.controller
@@ -190,6 +199,7 @@ export default class Controller {
                 this.controller.buttonControls.greenHouse();
             }
             setTimeout(() => {
+                ani.style.display = 'none'
                 btns.style.display = 'inline-flex';
             }, buttonHideTime);
 
