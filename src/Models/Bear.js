@@ -18,7 +18,7 @@ export default class Bear {
             this.resource = this.resources.items.bearModel
             this.bear = this.resource.scene
 
-            this.bear.scale.set(0.5, 0.5, 0.5)
+            this.bear.scale.set(0.2, 0.2, 0.2)
             this.bear.position.set(-0.1, 14.55, 0)
 
             this.mixer = new THREE.AnimationMixer(this.bear);

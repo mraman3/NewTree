@@ -23,7 +23,7 @@ export default [
     {
         name: 'bearModel',
         type: 'gltfModel',
-        path: '/cubdancing.gltf'
+        path: '/newBear.glb'
     },
     {
         name: 'mineSignsModel',
