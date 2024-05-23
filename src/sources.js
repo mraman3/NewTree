@@ -8,7 +8,7 @@ export default [
     {
         name: 'islandModel',
         type: 'gltfModel',
-        path: 'Island.glb'
+        path: '/Island.glb'
     },
     {
         name: 'signsModel',
