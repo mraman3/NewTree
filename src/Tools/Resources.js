@@ -1,8 +1,9 @@
 import * as THREE from 'three'
 import PWA from '../PWA.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import EventEmitter from './EventEmitter.js'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 export default class Resources extends EventEmitter {
     constructor(sources) {
@@ -26,9 +27,11 @@ export default class Resources extends EventEmitter {
 
     setLoaders() {
         this.loaders = {}
-
+        this.loaders.dracoLoader = new DRACOLoader
+        this.loaders.dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/')
         this.loaders.gltfLoader = new GLTFLoader(this.assestLoader)
         this.loaders.rgbeLoader = new RGBELoader(this.assestLoader);
+        this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
 
 
 
