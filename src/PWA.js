@@ -123,7 +123,7 @@ export default class PWA {
     loadAssests() {
         //Load manager info control
         this.assestLoader.onStart = function (url, item, total) {
-            console.log(`Started loading: ${url}`);
+
         }
 
         const progressBar = document.getElementById('progress-bar');
