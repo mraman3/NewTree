@@ -8,7 +8,7 @@ export default [
     {
         name: 'islandModel',
         type: 'gltfModel',
-        path: '/Island/Island.gltf'
+        path: 'Island.glb'
     },
     {
         name: 'signsModel',
@@ -23,7 +23,7 @@ export default [
     {
         name: 'bearModel',
         type: 'gltfModel',
-        path: '/newBear.glb'
+        path: '/dancingBear.glb'
     },
     {
         name: 'mineSignsModel',
