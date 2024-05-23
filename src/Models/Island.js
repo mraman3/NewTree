@@ -15,7 +15,8 @@ export default class Island {
 
     createIsland() {
         this.resources.on('ready', () => {
-            console.log(this.resources.items)
+            //Print All Resources 
+            //console.log(this.resources.items)
             this.resource = this.resources.items.islandModel
             this.island = this.resource.scene
             this.island.position.set(-2.8, 0, -3.35)
