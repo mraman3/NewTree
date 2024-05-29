@@ -89,7 +89,7 @@ export default class RayCaster {
         this.mountainTopBaseHitBox.visible = false
         this.mountainTopPillarHitBox.visible = false
         this.mineHitBox.visible = false
-        this.greenHouseHitBox.visible = true
+        this.greenHouseHitBox.visible = false
         this.topPortalHitBox.visible = false
         this.mountainHitBox.visible = false
         this.bearHeadHitbox.visible = false
