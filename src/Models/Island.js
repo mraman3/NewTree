@@ -24,7 +24,7 @@ export default class Island {
             this.mountain = this.island.children.find(child => child.name === 'mountain')
             this.runeStone = this.island.children.find(child => child.name === 'RuneStone')
 
-            this.greenHouse = this.island.children.find(child => child.name === 'GreenHouse').children.find(child => child.name === 'Plane005_2')
+            this.greenHouse = this.island.children.find(child => child.name === 'GreenHouse').children.find(child => child.name === 'Plane005_1')
             this.mineCave = this.island.children.find(child => child.name === 'MineCave')
 
             this.lightBeam = this.island.children.find(child => child.name === 'LightBeam')
