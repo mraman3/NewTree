@@ -10,9 +10,9 @@
 
 <body>
     <div><span id="fps"></span></div>
-    <canvas class="webgl"></canvas>
+    <canvas class="webgl" id="canvas"></canvas>
     <div class="lds-hourglass"></div>
-    <div class="btnGroup">
+    <div class="btnGroup" id="btnGp">
         <div class="up">
             <button class="card1" id="Top" type="button">
                 <svg width="43.875" height="22.325" viewBox="0 0 43.875 22.325" xmlns="http://www.w3.org/2000/svg"
@@ -68,11 +68,10 @@
             </button>
         </div>
     </div>
-
-    <div class="progress-bar-container">
+    <div class="progress-bar-container" id="loading">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt"
             viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet">
-            <g class="paw" transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#000000"
+            <g class="paw" transform="translate(125.000000,375.000000) scale(0.050000,-0.050000)" fill="#000000"
                 stroke="none">
                 <path
                     d="M1865 4021 c-151 -39 -249 -194 -270 -426 -13 -139 32 -337 104 -456 198 -327 522 -263 607 119 20 90 15 275 -10 367 -70 258 -267 439 -431 396z" />
@@ -91,7 +90,9 @@
         <label for="progress-bar">Loading...</label>
         <progress id="progress-bar" value="0" max="100"></progress>
     </div>
-
+    <div class="imgbox" id="imgBox">
+        <img class="center-fit" src='/public/Cubs_Use_Desktop.png'>
+    </div>
     <script type="module" src="main.js"></script>
 </body>
 
