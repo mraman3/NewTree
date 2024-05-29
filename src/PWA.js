@@ -75,11 +75,11 @@ export default class PWA {
         const light5 = new THREE.HemisphereLight(0xffffff, 0x0000C8, 3);
         light5.position.set(0, 15, -20);
         this.scene.add(light5);
-        this.scene.fog = new THREE.Fog(0x29425e, 5, 68)
+        this.scene.fog = new THREE.Fog(0xcecfcf, 25, 55)
 
         this.sphereGeo = new THREE.SphereGeometry(15, 32, 16);
         this.sphereMaterial = new THREE.MeshMatcapMaterial({
-            color: 0xa7ca6d6,
+            color: 0xffffff,
             side: THREE.DoubleSide
         });
         this.sphere = new THREE.Mesh(this.sphereGeo, this.sphereMaterial);
