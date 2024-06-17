@@ -35,6 +35,55 @@ g {
   fill: rgb(255, 253, 208);
 }
 
+/* Links button Group */
+.linksGroup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  left: 1%;
+  
+}
+
+.linkbuttonWP {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: #ffffff00;
+  border: none;
+  background-image: url(public/LinksPngs/WPnew.png);
+}
+
+.linkbuttonOS {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: #ffffff00;
+  border: none;
+  background-image: url(public/LinksPngs/OSnew.png);
+}
+
+.linkbuttonX {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: #ffffff00;
+  border: none;
+  background-image: url(public/LinksPngs/Xnew.png);
+}
+
+.linkbuttonD {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: #ffffff00;
+  border: none;
+  background-image: url(public/LinksPngs/DISnew.png);
+}
 
 
 /* New Button Group */
@@ -227,6 +276,7 @@ g {
   display: grid;
   height: 100%;
 }
+
 .center-fit {
   max-width: 100%;
   max-height: 100vh;
