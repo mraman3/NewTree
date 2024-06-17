@@ -37,12 +37,11 @@ g {
 
 /* Links button Group */
 .linksGroup {
-  position: absolute;
   display: flex;
   flex-direction: column;
+  position: absolute;
   top: 30%;
   left: 1%;
-  
 }
 
 .linkbuttonWP {
@@ -52,7 +51,7 @@ g {
   margin-bottom: 10px;
   background-color: #ffffff00;
   border: none;
-  background-image: url(public/LinksPngs/WPnew.png);
+  background-image: url(/LinksPngs/WPnew.png);
 }
 
 .linkbuttonOS {
@@ -62,7 +61,7 @@ g {
   margin-bottom: 10px;
   background-color: #ffffff00;
   border: none;
-  background-image: url(public/LinksPngs/OSnew.png);
+  background-image: url(/LinksPngs/OSnew.png);
 }
 
 .linkbuttonX {
@@ -72,7 +71,7 @@ g {
   margin-bottom: 10px;
   background-color: #ffffff00;
   border: none;
-  background-image: url(public/LinksPngs/Xnew.png);
+  background-image: url(/LinksPngs/Xnew.png);
 }
 
 .linkbuttonD {
@@ -82,7 +81,7 @@ g {
   margin-bottom: 10px;
   background-color: #ffffff00;
   border: none;
-  background-image: url(public/LinksPngs/DISnew.png);
+  background-image: url(/LinksPngs/DISnew.png);
 }
 
 
