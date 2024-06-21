@@ -176,8 +176,8 @@ g {
 
 .card1:hover {
   cursor: pointer;
-  scale: 1.1;
   background-color: #cc39a4;
+  --cardSize: 95px
 }
 
 .card1:hover .instagram {
@@ -186,8 +186,8 @@ g {
 
 .card2:hover {
   cursor: pointer;
-  scale: 1.1;
   background-color: #03A9F4;
+  --cardSize: 95px
 }
 
 .card2:hover .twitter {
@@ -196,8 +196,8 @@ g {
 
 .card3:hover {
   cursor: pointer;
-  scale: 1.1;
   background-color: black;
+  --cardSize: 95px
 }
 
 .card3:hover .github {
@@ -206,8 +206,8 @@ g {
 
 .card4:hover {
   cursor: pointer;
-  scale: 1.1;
   background-color: #8c9eff;
+  --cardSize: 95px
 }
 
 .card4:hover .discord {
